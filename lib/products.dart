@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import './pages/product.dart';
 
 class Products extends StatelessWidget {
-  final List<Map<String ,String>> products;
-  final Function deleteProduct;
-  Products(this.products,{this.deleteProduct} ) {
+  final List<Map<String, dynamic>> products;
+  //final Function deleteProduct;
+  //Products(this.products,{this.deleteProduct} ) {
+  Products(this.products) {
     print('[Products]-constructor');
   }
 
@@ -20,16 +21,15 @@ class Products extends StatelessWidget {
               FlatButton(
                 child: Text('More details'),
                 onPressed: () {
-                  Navigator.push<bool>(context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => ProductPage(products[index]['title'],products[index]['image']),
-                    
-                  )).then((bool value){
-                    if (value){
+                  Navigator.pushNamed<bool>(
+                    context,
+                    '/product/' + index.toString(),
+                  );/* .then((bool value) {
+                    if (value) {
                       deleteProduct(index);
                     }
-
-                  });
+                  }); */
+                  //print('/product/' + index.toString());
                 },
               )
             ],

@@ -44,9 +44,15 @@ class _AuthPageState extends State<AuthPage>{
           SwitchListTile(
             value:_acceptTerms,
             onChanged: (bool value){
-
+              setState(() {
+               _acceptTerms=value; 
+              });
             },
-          )
+            title: Text('Accept Terms'),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
           RaisedButton(
           child: Text('LOGIN'),
           onPressed: () {
